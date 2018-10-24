@@ -1,0 +1,19 @@
+{% extends 'base_inner.html' %}
+{% block title %}{{basic_list.title}} {{title}}{% endblock %}
+{% block page_header %}{{basic_list.first_name}} {{basic_list.middel_name}} {{basic_list.last_name}} Director{% endblock  %}
+{% block body_block %}
+    {% if basic_list %}
+    <table class="table">
+        <tbody>
+            {% include 'tablerowdetail.html' with heading="First Name" value=basic_list.first_name %}
+            {% include 'tablerowdetail.html' with heading="Second Name" value=basic_list.middel_name %}
+            {% include 'tablerowdetail.html' with heading="Last Name" value=basic_list.last_name %}
+            {% include 'tablerowdetail.html' with heading="Phone Number" value=basic_list.ph_number %}
+            {% include 'tablerowdetail.html' with heading="Birthdate" value=basic_list.birthdate %}
+            {% include 'tablerowdetail.html' with heading="Gender" value=basic_list.display_gender %}
+            {% include 'tablerowdetail.html' with heading="Website" value=basic_list.website %}
+        </tbody>
+    </table>
+    {% endif %}
+
+{% endblock  %}

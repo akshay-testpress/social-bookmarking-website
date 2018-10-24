@@ -1,0 +1,15 @@
+{% extends 'base_inner.html' %}
+{% block title %}{{basic_list.title}} {{title}}{% endblock %}
+{% block page_header %}{{basic_list.title}} Studio{% endblock  %}
+{% block body_block %}
+    {% if basic_list %}
+    <table class="table">
+        <tbody>
+            {% include 'tablerowdetail.html' with heading="Prefix" value=basic_list.prefix %}
+            {% include 'tablerowdetail.html' with heading="Title" value=basic_list.title %}
+            {% include 'tablerowdetail.html' with heading="Website" value=basic_list.website %}
+        </tbody>
+    </table>
+    {% endif %}
+
+{% endblock  %}

@@ -1,0 +1,22 @@
+{% extends 'base_inner.html' %}
+{% block title %}{{title}} {{title}}{% endblock %}
+{% block page_header %}{{page_heading}}{% endblock  %}
+{% block body_block %}
+    {% if basic_list|length > 0 %}
+        <div class="row"> 
+            <div class="col-md-6">
+                <ul class="list-group">
+                    {% for listItem in basic_list %}
+                        <a href="{% url linkurl listItem.id %}" class="nodecor">
+                            <li class="list-group-item">{{ listItem }}</li>
+                        </a>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    {% else %}
+        {% include 'nodata.html' with message="No data found" %}
+    {% endif %}
+{% endblock %}
+
+
