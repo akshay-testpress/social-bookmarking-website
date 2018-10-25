@@ -46,14 +46,30 @@
                 <a class="dropdown-item" href="{% url 'movies:directorlist' %}">Director</a>
               </div>
           </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" 
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Musics
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{% url 'musics:songlist' %}">All</a>
+                <a class="dropdown-item" href="{% url 'musics:genrelist' %}">Genre</a>
+                <a class="dropdown-item" href="{% url 'musics:artistlist' %}">Artist</a>
+                <a class="dropdown-item" href="{% url 'musics:albumlist' %}">Albums</a>
+                <a class="dropdown-item" href="{% url 'musics:labellist' %}">Label</a>
+              </div>
+          </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Music</a>
+            <a class="nav-link" href="#">Other</a>
           </li>
       </div>
     </nav>
     <div class="container">
       <div class="my-3">
-        <h2>{% block page_header %}{% endblock  %}</h2>
+      <div class="d-flex justify-content-between">
+              <div class="p-2"><h2>{% block page_header %}{% endblock  %}</h2></div>
+              <div class="p-2"><h2>{% block page_header_right %}{% endblock  %}</h2></div>
+      </div>
         {% block body_block %}
         {% endblock  %}
       </div>

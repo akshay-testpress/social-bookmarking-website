@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from django.views import generic
-from django.db import connection
 from django.db.models.functions import Concat
 from django.db.models import Value
 from .models import MoviesMaster,MoviesGenres,MoviesStudios,MoviesDirectors

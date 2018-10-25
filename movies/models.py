@@ -60,9 +60,9 @@ class MoviesMaster(models.Model):
 
     def __str__(self):
         return str(self.genre)+' - '+str(self.title)
-    
+    @property
     def amazon_url(self):
-        return str(self.ASIN)
+        return "http://asin.info/a/"+str(self.ASIN)
 
 
 
