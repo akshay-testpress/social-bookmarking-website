@@ -1,35 +1,33 @@
 {% extends 'base_inner.html' %}
 {% block title %}{{object}} {{title}}{% endblock %}
-{% block page_header %}Album Detail{% endblock  %}
+{% block page_header %}Album Detail{% endblock %}
 {% if object %}
-{% block page_header_right %}<a href="{% url 'musics:albumsong' object.id %}" class="nodecor">All Songs</a>{% endblock %}
+{% block page_header_right %}<a href="{% url 'musics:albumsong' object.id %}" class="nodecor">All Songs</a>{% endblock
+%}
 {% block body_block %}
-    <div class="row">
-        <div class="col-md-3 col-sm-12">
-            <div class="d-flex justify-content-center">
-                <img src="{{ object.cover_image_id.image_location }}" alt="object" class="movie-thumbnail img-responsive img-thumbnail">
-            </div>
-        </div>
-        <div class="col-md-9 col-sm-12">
-            <h1>{{ object }}</h1>
-            <table class="table">
-                <tbody>
-                    {% include 'tablerowdetail.html' with heading="Title" value=object.title %}
-                    {% include 'tablerowdetail.html' with heading="Subtitle" value=object.prefix %}
-                    {% include 'tablerowdetail.html' with heading="Genre" value=object.gener_id %}
-                    {% include 'tablerowdetail.html' with heading="Director" value=object.total_track %}
-                    {% include 'tablerowdetail.html' with heading="Release date" value=object.release_date|date:"d M Y" %}
-                    {% include 'tablerowdetail.html' with heading="Rating/Review" value=object.band_id %}
-                    {% include 'tablerowdetail.html' with heading="ASIN" value=object.label_id %}
-                    {% include 'tablerowdetail.html' with heading="Artist/s" value=artist_names %}
-                    
-                </tbody>
-            </table>
+<div class="row">
+    <div class="col-md-3 col-sm-12">
+        <div class="d-flex justify-content-center">
+            <img src="{{ object.cover_image_id.image_location }}" alt="object" class="movie-thumbnail img-responsive img-thumbnail">
         </div>
     </div>
-{% endblock  %}
+    <div class="col-md-9 col-sm-12">
+        <h1>{{ object }}</h1>
+        <table class="table">
+            <tbody>
+                {% include 'tablerowdetail.html' with heading="Title" value=object.title %}
+                {% include 'tablerowdetail.html' with heading="Subtitle" value=object.prefix %}
+                {% include 'tablerowdetail.html' with heading="Genre" value=object.gener_id %}
+                {% include 'tablerowdetail.html' with heading="Director" value=object.total_track %}
+                {% include 'tablerowdetail.html' with heading="Release date" value=object.release_date|date:"d M Y" %}
+                {% include 'tablerowdetail.html' with heading="Rating/Review" value=object.band_id %}
+                {% include 'tablerowdetail.html' with heading="ASIN" value=object.label_id %}
+                {% include 'tablerowdetail.html' with heading="Artist/s" value=artist_names %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
 {% else %}
-    {% include 'nodata.html' with message="No detail found" %}
+{% include 'nodata.html' with message="No detail found" %}
 {% endif %}
-
-

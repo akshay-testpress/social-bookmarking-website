@@ -1,24 +1,25 @@
 {% extends 'base_inner.html' %}
 {% block title %}{{title}}{% endblock %}
-{% block page_header %}{{page_heading}} Songs{% endblock  %}
+{% block page_header %}{{page_heading}} Songs{% endblock %}
 {% block body_block %}
 {% if objects %}
 <div class="row">
-    {% for object in objects  %}
-        <div class="col-md-2 col-sm-4 mx-2">
-            <div class="d-flex justify-content-center">
-                <a href="{% url 'musics:songdetail' object.id %}" class="nodecor">
+    {% for object in objects %}
+    <div class="col-md-2 col-sm-4 mx-2">
+        <div class="d-flex justify-content-center">
+            <a href="{% url 'musics:songdetail' object.id %}" class="nodecor">
                 <figure class="figure">
-                  <img src="{{ object.cover_image_id.image_location }}" class="figure-img img-fluid rounded movie-thumbnail" 
+                    <img src="{{ object.music_id.cover_image_id.image_location }}"
+                    class="figure-img img-fluid rounded movie-thumbnail"
                         alt="{{ object }}">
-                  <figcaption class="figure-caption">{{ object }}</figcaption>
+                    <figcaption class="figure-caption">{{ object }}</figcaption>
                 </figure>
-                </a>
-            </div>
+            </a>
         </div>
+    </div>
     {% endfor %}
 </div>
 {% else %}
-    {% include 'nodata.html' with message="There's no albums currently available." %}     
+    {% include 'nodata.html' with message="There's no albums currently available." %}
 {% endif %}
-{% endblock  %}
+{% endblock %}

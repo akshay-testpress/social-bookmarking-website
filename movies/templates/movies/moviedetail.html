@@ -2,7 +2,7 @@
 {% block title %}{{moviedetail.title}} {{title}}{% endblock %}
 {% block page_header %}Detail{% endblock  %}
 {% if moviedetail %}
-{% block page_header_right%}<a href={{moviedetail.amazon_url}} class="nodecor">Go to amazon</a>{% endblock %}
+{% block page_header_right%}<a href={{moviedetail.amazon_url}} target="_blank" class="nodecor">Go to amazon</a>{% endblock %}
     {% block body_block %}
         <div class="row">
             <div class="col-md-3 col-sm-12">
@@ -17,7 +17,7 @@
                         {% include 'tablerowdetail.html' with heading="Title" value=moviedetail.title %}
                         {% include 'tablerowdetail.html' with heading="Subtitle" value=moviedetail.sub_title %}
                         {% include 'tablerowdetail.html' with heading="Genre" value=moviedetail.genre %}
-                        {% include 'tablerowdetail.html' with heading="Director" value=moviedetail.directors %}
+                        {% include 'tablerowdetail.html' with heading="Director" value=moviedetail.get_all_directors_name %}
                         {% include 'tablerowdetail.html' with heading="Studio" value=moviedetail.studio %}
                         {% include 'tablerowdetail.html' with heading="Release date" value=moviedetail.release_date|date:"d M Y" %}
                         {% include 'tablerowdetail.html' with heading="Rating/Review" value=moviedetail.review %}
@@ -30,4 +30,3 @@
 {% else %}
     {% include 'nodata.html' with message="No detail found" %}
 {% endif %}
-

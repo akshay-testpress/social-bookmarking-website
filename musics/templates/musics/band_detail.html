@@ -1,14 +1,14 @@
 {% extends 'base_inner.html' %}
 {% block title %} {{object}} {{title}}{% endblock %}
-{% block page_header %}Band Detail {{object}}{% endblock  %}
+{% block page_header %}Band Detail {{object}}{% endblock %}
 {% block body_block %}
-    {% if object %}
-    <table class="table">
-        <tbody>
-            {% include 'tablerowdetail.html' with heading="Title" value=object.title %}
-            {% include 'tablerowdetail.html' with heading="Slogan" value=object.slogan %}
-            {% include 'tablerowdetail.html' with heading="Date Formed" value=object.date_formed %}
-        </tbody>
-    </table>
-    {% endif %}
-{% endblock  %}
+{% if object %}
+<table class="table">
+    <tbody>
+        {% include 'tablerowdetail.html' with heading="Title" value=object.title %}
+        {% include 'tablerowdetail.html' with heading="Slogan" value=object.slogan %}
+        {% include 'tablerowdetail.html' with heading="Date Formed" value=object.date_formed %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}

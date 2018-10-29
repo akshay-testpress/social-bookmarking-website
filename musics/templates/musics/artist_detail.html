@@ -1,20 +1,20 @@
 {% extends 'base_inner.html' %}
 {% block title %}{{object}} {{title}}{% endblock %}
-{% block page_header %}Artist Detail {{object}}{% endblock  %}
+{% block page_header %}Artist Detail {{object}}{% endblock %}
 {% if object %}
 {% block page_header_right %}<a href="{% url 'musics:artistsong' object.id %}" class="nodecor">All Songs</a>{% endblock %}
 {% block body_block %}
     <table class="table">
-        <tbody>
-            {% include 'tablerowdetail.html' with heading="First Name" value=object.first_name %}
-            {% include 'tablerowdetail.html' with heading="Middle Name" value=object.middle_name %}
-            {% include 'tablerowdetail.html' with heading="Last Name" value=object.last_name %}
-            {% include 'tablerowdetail.html' with heading="DOB" value=object.dob %}
-            {% include 'tablerowdetail.html' with heading="Band" value=object.band_id %}
-            {% include 'tablerowdetail.html' with heading="Label" value=object.label_id %}
-        </tbody>
+    <tbody>
+        {% include 'tablerowdetail.html' with heading="First Name" value=object.first_name %}
+        {% include 'tablerowdetail.html' with heading="Middle Name" value=object.middle_name %}
+        {% include 'tablerowdetail.html' with heading="Last Name" value=object.last_name %}
+        {% include 'tablerowdetail.html' with heading="DOB" value=object.dob %}
+        {% include 'tablerowdetail.html' with heading="Band" value=object.band_id %}
+        {% include 'tablerowdetail.html' with heading="Label" value=object.label_id %}
+    </tbody>
     </table>
-{% endblock  %}
+{% endblock %}
 {% else %}
-        {% include 'nodata.html' with message="No detail found" %}  
+{% include 'nodata.html' with message="No detail found" %}
 {% endif %}

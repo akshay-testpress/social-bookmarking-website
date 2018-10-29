@@ -1,25 +1,24 @@
 {% extends 'base_inner.html' %}
 {% block title %}{{title}}{% endblock %}
-{% block page_header %}{{page_heading}}{% endblock  %}
+{% block page_header %}{{page_heading}}{% endblock %}
 {% block body_block %}
 {% if movielist %}
 <div class="row">
-    {% for movie in movielist  %}
-        <div class="col-md-2 col-sm-4 mx-2">
-            <div class="d-flex justify-content-center">
-                <a href="{% url 'movies:moviedetail' movie.id %}" class="nodecor">
+    {% for movie in movielist %}
+    <div class="col-md-2 col-sm-4 mx-2">
+        <div class="d-flex justify-content-center">
+            <a href="{% url 'movies:moviedetail' movie.id %}" class="nodecor">
                 <figure class="figure">
-                  <img src="{{ movie.cover_image }}" class="figure-img img-fluid rounded movie-thumbnail" 
-                        alt="{{ movie.title }}">
-                  <figcaption class="figure-caption">{{ movie.title }}</figcaption>
+                    <img src="{{ movie.cover_image }}" class="figure-img img-fluid rounded movie-thumbnail" alt="{{ movie.title }}">
+                    <figcaption class="figure-caption">{{ movie.title }}</figcaption>
                 </figure>
-                </a>
-            </div>
+            </a>
         </div>
+    </div>
     {% endfor %}
 </div>
 {% else %}
-    {% include 'nodata.html' with message="There's no movie currently available." %}
-         
+{% include 'nodata.html' with message="There's no movie currently available." %}
+
 {% endif %}
-{% endblock  %}
+{% endblock %}

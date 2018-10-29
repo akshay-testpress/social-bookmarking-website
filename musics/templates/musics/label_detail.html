@@ -1,14 +1,14 @@
 {% extends 'base_inner.html' %}
 {% block title %} {{object}} {{title}}{% endblock %}
-{% block page_header %}Label Detail {{object}}{% endblock  %}
+{% block page_header %}Label Detail {{object}}{% endblock %}
 {% block body_block %}
-    {% if object %}
-    <table class="table">
-        <tbody>
-            {% include 'tablerowdetail.html' with heading="Title" value=object.title %}
-            {% include 'tablerowdetail.html' with heading="Sub Title" value=object.subtitle %}
-            {% include 'tablerowdetail.html' with heading="Established Year" value=object.est_year %}
-        </tbody>
-    </table>
-    {% endif %}
-{% endblock  %}
+{% if object %}
+<table class="table">
+    <tbody>
+        {% include 'tablerowdetail.html' with heading="Title" value=object.title %}
+        {% include 'tablerowdetail.html' with heading="Sub Title" value=object.subtitle %}
+        {% include 'tablerowdetail.html' with heading="Established Year" value=object.est_year %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}
