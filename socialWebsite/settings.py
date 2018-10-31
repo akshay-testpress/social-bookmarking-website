@@ -27,7 +27,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    # 'accounts.apps.AccountsConfig',
+    'places.apps.PlacesConfig',
     'movies.apps.MoviesConfig',
     'musics.apps.MusicsConfig',
     'users.apps.UsersConfig',
@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -75,7 +77,8 @@ WSGI_APPLICATION = 'socialWebsite.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+        # 'ENGINE': 'django.db.backends.sqlite3',
+        'ENGINE': 'django.contrib.gis.db.backends.spatialite',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
@@ -119,3 +122,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 LOGIN_URL = 'users:login'
+SPATIALITE_LIBRARY_PATH='/usr/local/lib/mod_spatialite.dylib'

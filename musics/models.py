@@ -9,6 +9,9 @@ class CoverImages(models.Model):
     class Meta:
         verbose_name_plural = "CoverImages"
 
+    def __str__(self):
+        return str(self.image_name)
+
 
 class MusicGenres(models.Model):
     title = models.CharField(max_length=50)

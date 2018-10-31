@@ -9,7 +9,7 @@
         <div class="d-flex justify-content-center">
             <a href="{% url 'musics:songdetail' object.id %}" class="nodecor">
                 <figure class="figure">
-                    <img src="{{ object.music_id.cover_image_id.image_location }}"
+                    <img src="{{ object.cover_image_id.image_location }}"
                     class="figure-img img-fluid rounded movie-thumbnail"
                         alt="{{ object }}">
                     <figcaption class="figure-caption">{{ object }}</figcaption>

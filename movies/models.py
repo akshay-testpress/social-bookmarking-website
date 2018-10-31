@@ -78,4 +78,4 @@ class MoviesMaster(models.Model):
         directors_queryset = MoviesMaster.objects.get(
             pk=self.id
         ).directors.all()
-        return (', '.join(str(a) for a in directors_queryset))
+        return (', '.join(str(director) for director in directors_queryset))

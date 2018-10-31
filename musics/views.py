@@ -194,7 +194,10 @@ class AllSongsByArtist(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         artist_id = self.kwargs["artist_id"]
-        return models.ArtistInMusics.objects.filter(artist_id=artist_id).all()
+        inner_q = models.ArtistInMusics.objects.filter(
+            artist_id=artist_id
+        ).only('music_id').all()
+        return models.Musics.objects.filter(pk__in=inner_q)
 
 
 class AllSongsInAlbum(LoginRequiredMixin, generic.ListView):

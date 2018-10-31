@@ -23,7 +23,6 @@ def signup(request):
 
 # for testing purpose
 
-
 # @login_required(login_url="users:login")
 # def home(request):
 #     username = request.user.get_username()
