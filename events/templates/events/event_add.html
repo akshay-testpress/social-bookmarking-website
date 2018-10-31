@@ -1,0 +1,64 @@
+{% extends 'base_inner.html' %}
+{% block title %}{{object}} {{title}}{% endblock %}
+{% block page_header %}Add Event{% endblock %}
+
+{% block body_block %}
+{{ formTime.non_field_errors }}
+{% if message %}
+{{ message }}
+{% endif %}
+
+<form action="{% url 'events:add' %}" method="POST">
+    {% csrf_token %}
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="title">Event Name* :</label>
+                {{ form.title }}
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="description">Description* :</label>
+                {{ form.description }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <div class="form-group">
+                <label for="address">Place* :</label>
+                {{ form.place }}
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <label for="phone">Tags :</label>
+                {{ form.tags }}
+            </div>
+        </div>
+    </div>
+    <div class=" row">
+        <div class=" col-4">
+            <div class="form-group">
+                <label for="phone">Start date :</label>
+                {{ formTime.start_time }}
+            </div>
+        </div>
+        <div class=" col-4">
+            <div class="form-group">
+                <label for="phone">End date :</label>
+                {{ formTime.end_time }}
+                {{ formTime.end_time.errors }}
+            </div>
+        </div>
+        <div class=" col-4">
+            <div class="form-group">
+                <label for="phone">All day :</label>
+                {{ formTime.is_all_day }}
+            </div>
+        </div>
+    </div>
+    <button type="submit" class=" btn btn-dark">Add Place</button>
+</form>
+{% endblock %}

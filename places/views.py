@@ -27,7 +27,11 @@ def insert_places(request):
 class PlaceView(LoginRequiredMixin, generic.ListView):
     template_name = 'places/place_list.html'
     context_object_name = 'objects'
-    queryset = models.Place.objects.order_by('title')
+
+    def get_queryset(self):
+        queryset = models.Place.objects.filter(
+            user=self.request.user).order_by('title')
+        return queryset
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)
@@ -40,6 +44,11 @@ class PlaceDetailView(LoginRequiredMixin, generic.DetailView):
     model = models.Place
     template_name = 'places/place_detail.html'
     context_object_name = 'object'
+
+    def get_queryset(self):
+        queryset = super(PlaceDetailView, self).get_queryset().filter(
+            user=self.request.user)
+        return queryset
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(*args, **kwargs)

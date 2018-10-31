@@ -27,6 +27,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'events.apps.EventsConfig',
     'places.apps.PlacesConfig',
     'movies.apps.MoviesConfig',
     'musics.apps.MusicsConfig',
@@ -122,4 +123,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 LOGIN_URL = 'users:login'
-SPATIALITE_LIBRARY_PATH='/usr/local/lib/mod_spatialite.dylib'
+SPATIALITE_LIBRARY_PATH = '/usr/local/lib/mod_spatialite.dylib'

@@ -1,0 +1,17 @@
+{% extends 'base_inner.html' %}
+{% block title %} {{object}} {{title}}{% endblock %}
+{% block page_header %}Event Detail {{object}}{% endblock %}
+{% block body_block %}
+{% if object %}
+<table class="table">
+    <tbody>
+        {% include 'tablerowdetail.html' with heading="Title" value=object.title %}
+        {% include 'tablerowdetail.html' with heading="Place" value=object.place %}
+        {% include 'tablerowdetail.html' with heading="Address" value=object.place.address %}
+        {% include 'tablerowdetail.html' with heading="Address" value=object.place.city %}
+        {% include 'tablerowdetail.html' with heading="Description" value=object.description %}
+        {% include 'tablerowdetail.html' with heading="Tag/s" value=object.get_all_tags %}
+    </tbody>
+</table>
+{% endif %}
+{% endblock %}

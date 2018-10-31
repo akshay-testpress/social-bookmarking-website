@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.gis.db.models import PointField
 from taggit.managers import TaggableManager
 import datetime
-from .utils import get_unique_slug
+from socialWebsite.utils import get_unique_slug
 from django.contrib.auth.models import User
 # from taggit.models import Tag
 
